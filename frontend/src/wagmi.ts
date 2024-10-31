@@ -1,35 +1,33 @@
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
+import { createStorage } from "wagmi";
 import {
+  anvil,
   arbitrum,
   arbitrumSepolia,
-  mainnet,
-  anvil,
   hardhat,
+  mainnet,
 } from "wagmi/chains";
 
-const projectId = "37995902ad353a1dfa24c6f0f1aea540" as string;
+const projectId = import.meta.env.VITE_PUBLIC_PROJECT_ID as string;
+const devTestnets = import.meta.env.VITE_PUBLIC_ONLY_ANVIL_HARDHAT_TESTNETS;
+const enableTestnetInProd = import.meta.env.VITE_PUBLIC_ENABLE_TESTNETS
 
 export const config = getDefaultConfig({
   appName: "Arbitrum Posting App",
   projectId: projectId,
+  storage: createStorage({
+    storage: localStorage,
+  }),
   chains:
-    process.env.NEXT_PUBLIC_ONLY_ANVIL_HARDHAT_TESTNETS === "true"
+    devTestnets === "true"
       ? [anvil, hardhat]
       : [
           mainnet,
           arbitrum,
-          ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true"
-            ? [arbitrumSepolia, anvil]
+          arbitrumSepolia,
+          ...(enableTestnetInProd === "true"
+            ? [anvil]
             : []),
         ],
   ssr: false,
 });
-
-// chains: [
-//   mainnet,
-//   polygon,
-//   optimism,
-//   arbitrum,
-//   base,
-//   ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [sepolia] : []),
-// ],
