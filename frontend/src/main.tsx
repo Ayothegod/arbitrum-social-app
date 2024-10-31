@@ -6,8 +6,8 @@ import { WagmiProvider } from "wagmi";
 import App from "./App.tsx";
 import { config } from "./wagmi.ts";
 
+import "./styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
-import "./index.css";
 
 const queryClient = new QueryClient();
 

@@ -1,13 +1,34 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Index, { RootError } from "./routes/index.tsx";
-// NOTE: make sure to add errorBoundary to all routes that throw error from loader and actions
+import Index, { RootError, Loader } from "./routes/index.tsx";
+import Forum from "./routes/forum.tsx";
+import Post from "./routes/singlePost.tsx";
+import AllComments from "./routes/comments.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Index />,
     errorElement: <RootError />,
+  },
+  {
+    path: "/forum",
+    element: <Forum />,
+    errorElement: <RootError />,
+    loader: Loader,
+  },
+  {
+    path: "/comments",
+    element: <AllComments />,
+    errorElement: <RootError />,
+  },
+  {
+    path: "/posts/:id",
+    element: <Post />,
+    errorElement: <RootError />,
+    loader: async ({ params }) => {
+      return params.id;
+    },
   },
   // {
   //   element: <MainLayout />,
