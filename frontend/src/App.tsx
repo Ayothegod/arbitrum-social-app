@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Root, { RootError } from "./routes/root.tsx";
+import Index, { RootError } from "./routes/index.tsx";
 // NOTE: make sure to add errorBoundary to all routes that throw error from loader and actions
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <Index />,
     errorElement: <RootError />,
   },
   // {
