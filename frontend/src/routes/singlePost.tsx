@@ -23,7 +23,7 @@ export default function Post() {
   // const router = useRouter();
   const [postId, setPostId] = useState<string>("0");
 
-  console.log("id:", id)
+  // console.log("id:", id)
 
   useEffect(() => {
     if (!id) {
