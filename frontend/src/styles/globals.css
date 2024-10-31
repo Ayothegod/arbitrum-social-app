@@ -34,7 +34,7 @@ background: rgb(0,0,0);
 /* background: -moz-repeating-conic-gradient(293deg, rgba(0,0,0,1) 7%, rgba(101,101,101,1) 42%, rgba(8,9,9,1) 83%);
 background: -webkit-repeating-conic-gradient(293deg, rgba(0,0,0,1) 7%, rgba(101,101,101,1) 42%, rgba(8,9,9,1) 83%);
 background: repeating-conic-gradient(293deg, rgba(0,0,0,1) 7%, rgba(101,101,101,1) 42%, rgba(8,9,9,1) 83%); */
-background: content-box repeating-conic-gradient(#041828ff 0.0002% 0.00195%, #B24A4Aff 0.002% 0.0015%);
+/* background: content-box repeating-conic-gradient(#041828ff 0.0002% 0.00195%, #B24A4Aff 0.002% 0.0015%); */
 }
 
 a {
